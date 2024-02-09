@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<!--Jack Carpenter-->
+<!--Section 001-->
+<!--This is my first ASP.NET Website. This is my Index.cshtml page-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Package Calculations - Become an FC24 Champion</title>
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery -->
+</head>
+<body>
+    <h1>Package Calculations for FC24 Tutoring</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="hours">Hours Needed:</label>
+                        <input type="number" class="form-control" id="hours" placeholder="Enter hours" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="rate">Hourly Rate ($):</label>
+                        <input type="text" class="form-control" id="rate" value="20" readonly>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="calculate">Calculate Total</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <label for="total">Total Charge ($):</label>
+                <input type="text" class="form-control" id="total" readonly>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 FC24 Champion Guide. Created by Jack Carpenter. All rights reserved.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $('#calculate').click(function () {
+                var hours = $('#hours').val();
+                var rate = $('#rate').val();
+                if (hours > 0) {
+                    var total = hours * rate;
+                    $('#total').val(total.toFixed(2));
+                } else {
+                    alert('Please enter a positive number for hours.');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
